@@ -1,18 +1,19 @@
-const Notification = () => {
-  const style = {
-    border: 'solid',
-    padding: 10,
-    borderWidth: 1,
-    marginBottom: 5
-  }
-  
-  if (true) return null
+import { useMessageValue } from '../NotiContext'
 
-  return (
-    <div style={style}>
-      
-    </div>
-  )
+const Notification = () => {
+  const errorMessage = useMessageValue()
+  const message = useMessageValue()
+  const style =
+    errorMessage === ''
+      ? null
+      : {
+          border: 'solid',
+          padding: 10,
+          borderWidth: 1,
+          marginBottom: 5,
+        }
+
+  return <div style={style}>{message}</div>
 }
 
 export default Notification
