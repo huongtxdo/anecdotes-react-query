@@ -15,7 +15,7 @@ const AnecdoteForm = () => {
     onError: (error) => {
       dispatch({
         type: 'error',
-        payload: 'Unable to create anecdote',
+        payload: error.response.data.error,
       })
       setTimeout(() => {
         dispatch({ type: 'reset' })
